@@ -1,0 +1,115 @@
+.testimonials {
+  &__img {
+    height: 150px;
+    width: 150px;
+    background: $red-light;
+    margin: rem(45) auto rem(50);
+  }
+  &__img::before,
+  &__img::after {
+    content: "";
+    position: absolute;
+    border: $base-border solid $green-light;
+    border-radius: $base-border-radius;
+    @include animation(spin, 10s, linear, infinite);
+  }
+  &__img::before {
+    width: 180px;
+    height: 180px;
+    left: -15px;
+    top: -15px;
+    border-left: $base-border solid transparent;
+  }
+  &__img::after {
+    width: 210px;
+    height: 210px;
+    left: -30px;
+    top: -30px;
+    border-right: $base-border solid transparent;
+  }
+  &__title {
+    font-size: rem(24);
+    font-weight: $font-weight-normal;
+    color: $black-90;
+    text-transform: capitalize;
+  }
+  &__subtitle {
+    margin: 0;
+    text-transform: capitalize;
+    color: $black-70;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    background: $main-color;
+    display: inline-block;
+    line-height: 35px;
+    margin: 0 rem(4);
+    border-radius: $base-border-radius;
+  }
+}
+.decoration {
+  &__circles {
+    position: absolute;
+    border-radius: $base-border-radius;
+    opacity: 0.5;
+  }
+  &__circles:nth-child(1) {
+    width: 40px;
+    height: 40px;
+    top: 10%;
+    left: 20%;
+    background: $yellow-light;
+  }
+  &__circles:nth-child(2) {
+    width: 50px;
+    height: 50px;
+    top: 40%;
+    left: 43%;
+    background: $green-light;
+  }
+  &__circles:nth-child(3) {
+    width: 30px;
+    height: 30px;
+    top: 70%;
+    left: 70%;
+    background: $red-light;
+  }
+  &__circles:nth-child(4) {
+    width: 25px;
+    height: 25px;
+    top: 46%;
+    left: 26%;
+    background: $red-light;
+  }
+}
+.images {
+  &__item {
+    position: absolute;
+    border-radius: $base-border-radius;
+    opacity: 0.5;
+  }
+  &__item:nth-child(1) {
+    width: 60px;
+    height: 60px;
+    top: 26%;
+    left: 27%;
+    background: $yellow-light;
+  }
+  &__item:nth-child(2) {
+    width: 80px;
+    height: 80px;
+    top: 38%;
+    left: 85%;
+    background: $red-light;
+  }
+  &__item:nth-child(3) {
+    width: 40px;
+    height: 40px;
+    top: 60%;
+    left: 17%;
+    background: $green-light;
+  }
+}

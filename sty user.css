@@ -1,0 +1,177 @@
+/* Navbar Styles */
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0px;
+}
+
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.brand img {
+  height: 80px;
+  width: 80px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-two {
+  margin-right: 80px;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links li a,
+.nav-links li button {
+  color: #fff;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.nav-links li button:hover {
+  color: #ddd;
+}
+
+/* Filter Popup Styles */
+.filter-popup {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.filter-popup.show {
+  display: block;
+}
+
+.filter-input {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.filter-btn {
+  padding: 5px 10px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  background-color: #555;
+}
+
+/* Booking Table Styles */
+.booking-table-container {
+  padding: 20px;
+}
+
+.booking-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.booking-table th, 
+.booking-table td {
+  padding: 8px;
+  text-align: center;
+  border: none; /* Remove vertical borders */
+}
+
+.booking-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd; /* Add bottom border for header */
+}
+
+.booking-table td {
+  border-bottom: 1px solid #ddd; /* Add bottom border for rows */
+}
+
+.booking-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.booking-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Image Styles */
+.image-cell {
+  width: 50px; /* Adjust the size as needed */
+}
+
+.booking-img {
+  width: 50px; /* Adjust the size as needed */
+  height: 50px; /* Adjust the size as needed */
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer; /* Change cursor to pointer to indicate clickability */
+}
+
+/* Modal Styles */
+.image-modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+.modal-content-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.modal-content-close:hover {
+  color: #ccc;
+}
+
+/* Background Styles */
+.background {
+  background: linear-gradient(106.37deg, #ffe1bc 29.63%, #ffcfd1 51.55%, #f3c6f1 90.85%);
+}

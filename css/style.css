@@ -1,0 +1,219 @@
+/* ===== Style Playr ===== */
+.playr__img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.accordian .card .card-body {
+  padding: 20px;
+}
+
+.accordian .card .card-body {
+  display: none;
+}
+
+/*open one card by default*/
+.accordian .card:nth-child(1) .card-body {
+  display: block;
+}
+
+.accordian .card .card-body p {
+  font-size: 15px;
+  line-height: 24px;
+  color: #444444;
+  margin: 0px;
+}
+
+/* ============ .contact-form CSS grid ============ */
+
+/* contact form CSS grid layout */
+.contact-grid,
+.contact-select__grid,
+.contact-tow__grid,
+.contact-one__grid {
+  display: grid;
+  grid-gap: 35px;
+}
+
+.contact-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.contact-select__grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.contact-tow__grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.contact-one__grid {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+/* Resiponsev */
+@media screen and (min-width: 1600px) {
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 35px;
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1599px) {
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 35px;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1299px) {
+  .contact-grid,
+  .contact-select__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 35px;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 799px) {
+  .contact-grid,
+  .contact-select__grid,
+  .contact-tow__grid,
+  .contact-one__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 35px;
+  }
+
+  /* --- grid items --- */
+  .comment-box {
+    grid-column: 1 / -1;
+  }
+
+  .submit-button {
+    /* justify-self: start; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+/* ============ form styles ============ */
+
+/* adds space on top for label */
+.contact-form {
+  margin-top: 30px;
+}
+
+/* positioning .form-field relative, so .lable can be positioned on-top (absolute) */
+.form-field {
+  position: relative;
+}
+
+/* label styles */
+.label {
+  line-height: 26px;
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #000;
+  cursor: text;
+}
+
+/* input styles */
+.form-control {
+  border: 1px solid #f9eeee;
+  height: 48px;
+  padding: 0 1rem;
+  width: 100%;
+  background-color: rgb(247, 247, 247);
+  color: rgb(85, 85, 85);
+  transition: all 0.3s linear;
+  margin-top: 5px;
+  border-radius: 30px;
+}
+
+.form-control:focus {
+  outline: 0;
+  box-shadow: 0 1px 5px rgb(0, 0, 0, 10%);
+  border: 1px solid rgb(0, 0, 0);
+}
+::placeholder {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(238, 235, 235);
+}
+/* ============ submit button styles ============ */
+.submit-button {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border: 2px solid rgb(0, 0, 0);
+  display: inline-block;
+  padding: 12px 30px;
+  min-width: 200px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: 50px;
+  letter-spacing: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-approv {
+  margin-left: 1rem;
+  background: #fff;
+  color: rgb(0, 0, 0);
+}
+
+.btn-approv:hover {
+  background-color: rgb(0, 0, 0) !important;
+  color: #fff !important;
+}
+
+.btn:hover {
+  background-color: white;
+  color: rgb(0, 0, 0);
+}
+
+.btn:active {
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+@media (min-width: 0px) and (max-width: 599px) {
+  .submit-button {
+    display: block;
+    text-align: center;
+  }
+
+  .btn {
+    padding: 8px 20px;
+    min-width: 160px;
+  }
+
+  .btn-approv {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .container .accordion-container .accordion .accordion-heading h3 {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .container .accordion-container .accordion .accordion-heading i {
+    font-size: 20px;
+  }
+
+  
+}

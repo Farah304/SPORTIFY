@@ -1,0 +1,44 @@
+// ====== Style title ======== //
+.main-title {
+  margin-bottom: $base-margin;
+  position: relative;
+  .title {
+    font-size: rem(20);
+    font-weight: $font-weight-normal;
+    color: $main-color;
+    text-transform: capitalize;
+  }
+  .subtitle {
+    font-size: rem(35);
+    font-weight: $font-weight-base;
+    color: $black-90;
+    text-transform: capitalize;
+    @include breakpoint(isCommon) {
+      font-size: rem(25);
+    }
+  }
+  .subtitle::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 44%;
+    width: 90px;
+    height: 4px;
+    background: $main-color;
+    @include breakpoint(isCommon) {
+      left: 39%;
+    }
+  }
+  .subtitle--left::after {
+    left: 38%;
+    @include breakpoint(isCommon) {
+      left: 33%;
+    }
+    @include breakpoint(isMobile) {
+      left: 38%;
+    }
+  }
+  @include breakpoint(isMobile) {
+    margin-top: rem(16);
+  }
+}

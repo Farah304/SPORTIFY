@@ -1,0 +1,131 @@
+// ========= Variables Style ======== //
+
+// Color system
+
+// scss-docs-start gray-color-variables
+//$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+//$black: #000;
+
+// scss-docs-start color-variables
+$blue: #0d6efd;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #d63384;
+$red: #dc3545;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #198754;
+$teal: #20c997;
+$cyan: #0dcaf0;
+
+// scss-docs-start theme-color-variables
+$priinry: $blue;
+$secondary: $gray-600;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-100;
+$dark: $gray-900;
+
+$hue-value-10: 0;
+$hue-value-20: 230;
+$main-color: hsl($hue-value-10, 74%, 61%);
+$button-hover-color: hsl($hue-value-10, 57%, 53%);
+$body-bg-color: hsl($hue-value-10, 63%, 97%);
+$clr-grey-10: hsl(210, 36%, 96%);
+$border-color: hsl($hue-value-10, 40%, 93%);
+$box-shadow: 0 0 10px hsl($hue-value-10, 40%, 90%);
+$body-gridient-bg-color-1: rgba($hue-value-10, 100%, 50%, 0.2);
+$body-gridient-bg-color-2: rgba($hue-value-20, 100%, 50%, 0.2);
+$descortion-bg-color-1: hsl($hue-value-10, 100%, 70%);
+$descortion-bg-color-2: hsl($hue-value-20, 100%, 70%);
+
+// ====== Switch Colors
+
+// $black-77: hsl(0, 0%, 87%);
+// $black-78: hsl(0, 0%, 100%);
+// $white-1: hsl(240, 8%, 21%);
+// $select-box-bg-color-1: hsl(240, 8%, 21%);
+// $border-color-11: hsl(240, 9%, 25%);
+// $border-color-12: hsl(240, 9%, 30%);
+// $body-bg-color-17: hsl(240, 10%, 19%);
+// $box-shadow-bg: 0 0 10px hsla(0, 0%, 0%, 0.08);
+
+$orange: hsl(36, 80%, 50%);
+$white: hsl(0, 0%, 100%);
+$WHITE: hsl(0, 0%, 100%);
+$BLACK: hsl(0, 0%, 0%);
+$black-90: hsl(0, 0%, 10%);
+$black-70: hsl(0, 0%, 30%);
+$black-alpha-40: hsla(0, 0%, 0%, 0.4);
+$yellow-light: hsl(44, 95%, 83%);
+$green-light: hsl(158, 68%, 75%);
+$red-light: hsl(0, 84%, 80%);
+$orange-light: hsl(22, 85%, 80%);
+$select-color: hsl(0, 0%, 100%);
+$border-color-100: hsl(0, 0%, 90%);
+$transition: all 0.3s linear;
+
+// === theme Switch Color
+$color-1: hsl(0, 74%, 61%);
+$color-2: hsl(230, 74%, 61%);
+$color-3: hsl(36, 74%, 61%);
+$color-4: hsl(277, 74%, 61%);
+$color-5: hsl(164, 74%, 61%);
+
+// == Spacing Padding
+$base-padding-sm: 0.5rem;
+$base-padding-md: 0.75rem;
+$base-padding-lg: 1rem;
+$base-padding-xl: 1.5rem;
+$base-padding-xxl: 1.75rem;
+$base-padding: 2rem;
+
+// ===== Spacing Margin
+$base-margin-sm: 0.5rem;
+$base-margin-md: 0.75rem;
+$base-margin-lg: 1rem;
+$base-margin-xl: 1.5rem;
+$base-margin-xxl: 1.75rem;
+$base-margin: 2rem;
+
+// == borders
+$base-border: 1px;
+$base-border-radius: 50%;
+$base-radius: 20px;
+
+// == box-shadow
+$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+
+// == Font Size
+$base-font-size: 1rem;
+$font-size-sm: $base-font-size * 0.75;
+$font-size-md: $base-font-size * 1.5;
+$font-size-lg: $base-font-size * 1.75;
+$font-size-xl: $base-font-size * 2;
+$font-size-xxl: $base-font-size * 3;
+
+// == Font Weight
+$font-weight-lighter: 300;
+$font-weight-light: 400;
+$font-weight-normal: 500;
+$font-weight-base: 600;
+$font-weight-bold: 700;
+$font-weight-bolder: bold;
+
+$screen-xs: 0 !default;
+$screen-sm: 576px !default;
+$screen-md: 768px !default;
+$screen-lg: 992px !default;
+$screen-xl: 1200px !default;
+$screen-wd: 1400px !default;

@@ -1,0 +1,344 @@
+// ============= Course Details ============== //
+.course-details {
+  &__title {
+    font-size: rem(30);
+    font-weight: $font-weight-base;
+    color: $black-90;
+    margin: 0 0 rem(15);
+    text-transform: capitalize;
+    @include breakpoint(isMobile) {
+      font-size: rem(20);
+    }
+  }
+  &__list {
+    margin: rem(6) 0 0;
+    text-transform: capitalize;
+  }
+  &__list > span {
+    margin-left: rem(5);
+  }
+  &__tabs {
+    margin: rem(30) 0 rem(20);
+  }
+  .nav-link {
+    margin: 0 rem(10) rem(10) 0;
+  }
+}
+
+// ====== Accordion Style ======= //
+.course-details__course-curriculum {
+  .accordion-item {
+    border-color: $border-color;
+    background: transparent;
+  }
+  .accordion-button {
+    background: transparent;
+    flex-wrap: wrap;
+    color: $black-90;
+    padding-left: rem(50);
+    padding-right: rem(160);
+    line-height: 1.5;
+    transition: $transition;
+    > span {
+      position: absolute;
+      right: rem(17);
+      font-size: rem(15);
+      font-weight: $font-weight-light;
+    }
+    &:hover {
+      color: $white;
+      background: $main-color;
+    }
+  }
+  .accordion-button::after {
+    content: "\f077";
+    font-family: "Font Awesome 5 Free";
+    font-weight: $font-weight-bolder;
+    background-image: none;
+    position: absolute;
+    left: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: auto;
+    width: auto;
+    line-height: 1;
+  }
+  .accordion-button:focus {
+    box-shadow: none;
+    color: $white; 
+    background: $main-color;
+  }
+  .accordion-button:not(.collapsed) span {
+    font-weight: $font-weight-normal;
+  }
+  .accordion-button:not(.collapsed)::after {
+    transform: translateY(-50%) rotate(-180deg);
+  }
+  .accordion-button:not(.collapsed) {
+    font-weight: $font-weight-base;
+    border: $base-border solid $border-color;
+    box-shadow: none;
+  }
+}
+
+// ======
+.course-details__menu-item {
+  position: relative;
+  padding: rem(4) rem(50) rem(4) rem(20);
+
+  > span {
+    font-size: rem(14);
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  > i {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    font-size: rem(12);
+    color: $black-90;
+  }
+}
+
+// ====== instructor ======== //
+.instructor {
+  &__img {
+    > img {
+      max-width: 130px;
+      margin-bottom: 1rem;
+      @include breakpoint(isCommon) {
+        width: 100px;
+      }
+    }
+  }
+  &__name {
+    font-size: rem(16);
+    font-weight: $font-weight-normal;
+    margin-bottom: rem(10);
+    > span {
+      font-size: rem(14);
+      font-weight: $font-weight-light;
+    }
+  }
+  &__list li:not(:last-child) {
+    margin-bottom: rem(5);
+  }
+  &__list {
+    li > i {
+      color: $main-color;
+      margin-right: rem(5);
+    }
+  }
+  &__text {
+    > p {
+      font-size: rem(16);
+      font-weight: $font-weight-lighter;
+      color: $black-70;
+      line-height: 1.7;
+    }
+  }
+  @include breakpoint(isCommon) {
+    .instructor__right {
+      margin-bottom: rem(16);
+    }
+  }
+}
+
+// ======== form select ========= //
+.reviews-filter {
+  width: 200px;
+}
+.form-select {
+  height: 48px;
+  border-color: $border-color;
+  color: $black-90;
+}
+.form-select:focus {
+  border-color: $border-color;
+  color: $black-90;
+  box-shadow: none;
+}
+select.form-select:focus option {
+  background: $select-color;
+  transition: $transition;
+}
+.form-control:focus {
+  border-color: $border-color;
+  outline: 0;
+  box-shadow: none;
+}
+
+// ======= Course Reviews
+.reviews {
+  &__average {
+    font-size: rem(40);
+    font-weight: $font-weight-bold;
+    color: $black-90;
+  }
+  &__stars > i {
+    color: $orange;
+    transition: $transition;
+    &:hover {
+      color: $main-color;
+    }
+  }
+}
+.rating-bars {
+  display: flex;
+  align-items: center;
+  margin-bottom: rem(10);
+  &__star {
+    min-width: 60px;
+    color: $orange;
+  }
+}
+.progress {
+  width: calc(100% - 120px);
+  height: 10px;
+  background: $border-color;
+  margin-right: rem(20);
+  border-radius: 0;
+  &-bar {
+    background: $main-color;
+  }
+}
+.reviews-list {
+  &__item {
+    position: relative;
+    margin-bottom: rem(30);
+    padding-left: rem(65);
+  }
+  &__img {
+    max-width: 50px;
+    border-radius: $base-border-radius;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  &__name {
+    font-size: rem(16);
+    font-weight: $font-weight-normal;
+    text-transform: capitalize;
+    margin: 0 0 rem(5);
+    color: $black-90;
+  }
+  &__date {
+    font-size: rem(14);
+    font-weight: $font-weight-light;
+    margin-left: rem(8);
+    display: inline-block;
+    color: $black-70;
+  }
+  &__text {
+    font-size: rem(16);
+    font-weight: $font-weight-light;
+    margin: rem(5) 0 0;
+    color: $black-70;
+  }
+}
+
+// ========= Course Sidebar
+.course-sidebar {
+  &__img {
+    margin-bottom: rem(20);
+    overflow: hidden;
+    border-radius: $base-radius / 4;
+    cursor: pointer;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      background: $black-alpha-40;
+    }
+  }
+  &__play-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: rem(16);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $WHITE;
+    background: $main-color;
+    border-radius: $base-border-radius;
+  }
+  &__play-icon + p {
+    position: absolute;
+    top: calc(50% + 40px);
+    font-weight: $font-weight-normal;
+    width: 100%;
+    color: $WHITE;
+  }
+  @include breakpoint(isCommon) {
+    margin-top: rem(32);
+  }
+}
+.course-sidebar__price {
+  > span {
+    margin-right: rem(10);
+  }
+  &-old {
+    text-decoration: line-through;
+  }
+  &-new {
+    font-size: rem(32);
+    font-weight: $font-weight-bold;
+    color: $black-90;
+  }
+  &-discount {
+    font-size: rem(16);
+    font-weight: $font-weight-light;
+    color: $main-color;
+  }
+}
+.course-sidebar__menu {
+  > li {
+    position: relative;
+    padding-left: rem(21);
+    margin-bottom: rem(8);
+    color: $black-70;
+  }
+  > li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background: $main-color;
+    border-radius: $base-border-radius;
+  }
+}
+// ====== Video Modal
+.video-modal {
+  .btn-close {
+    position: absolute;
+    right: 0;
+    top: -35px;
+    width: 35px;
+    height: 35px;
+    font-size: rem(16);
+    padding: 0;
+    color: $WHITE;
+    background-image: none;
+    border-radius: $base-border-radius;
+    opacity: 1;
+    z-index: 1;
+    transition: $transition;
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+  .modal-content {
+    border: 0;
+  }
+}

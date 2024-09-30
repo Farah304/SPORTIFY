@@ -1,0 +1,224 @@
+/* Sidebar styles */
+.sidebar {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar .sidebar-header img {
+  max-width: 100%;
+  height: auto;
+  max-height: 100px; /* تعديل حجم الصورة حسب الرغبة */
+  margin-right: auto; /* تحريك اللوجو قليلاً لليسار */
+}
+
+/* Main Wrapper Start */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* جعل ارتفاع المحتوى الرئيسي يمتلك بحد أدنى */
+  margin-left: 250px;
+  padding: 20px;
+}
+
+/* Page Loader */
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* Custom button styles */
+.btn-lg {
+  font-size: 1.5rem;
+  padding: 1.5rem; /* تقليل حجم الزر بشكل بسيط */
+  margin-bottom: 15px; /* تقليل المسافة بين الأزرار */
+  border-radius: 10px;
+  background-color: #f8f9fa; /* خلفيه الزرار */
+  border: 2px solid #6c757d;
+  color: rgb(5, 5, 5);
+  transition: all 0.3s ease;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; /* يضمن توسيط النص مع الأيقونة */
+  align-items: center; /* يضمن توسيط النص مع الأيقونة */
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.btn-lg:hover {
+  background-color: hsl(0, 74%, 61%);
+  color: white; /* تغيير لون النص عند التحويم */
+  transform: translateY(-2px);
+}
+
+.btn-lg .icon {
+  font-size: 1.5rem;
+  margin-right: 10px; /* تعديل المسافة بين الأيقونة والنص */
+}
+
+/* تعديل الأشكال لكل زر بحسب الرغبة */
+.btn-lg.football .icon {
+  color: #e74c3c; /* لون الأيقونة حسب الفريق */
+}
+
+.btn-lg.padel .icon {
+  color: #3498db; /* لون الأيقونة حسب الفريق */
+}
+
+.btn-lg.basketball .icon {
+  color: #f39c12; /* لون الأيقونة حسب الفريق */
+}
+
+.btn-lg.tennis .icon {
+  color: #4CAF50; /* لون الأيقونة باللون الأخضر */
+  font-size: 1.5rem; /* حجم الأيقونة */
+}
+
+
+.btn-lg.tennis {
+  color: rgb(5, 5, 5);
+  transform: translateY(-2px);
+}
+
+.btn-lg.tennis:hover {
+  background-color: hsl(0, 74%, 61%);
+  border-color: hsl(0, 74%, 61%);
+  color: white;
+}
+
+/* تصميم زر الإضافة */
+.btn-lg.add-stadium {
+  background-color: #28a745; /* لون خلفية زر الإضافة */
+  border-color: #28a745; /* لون حدود زر الإضافة */
+  color: #fff; /* لون النص في زر الإضافة */
+}
+
+.btn-lg.add-stadium:hover {
+  background-color: #218838; /* لون خلفية زر الإضافة عند التحويم */
+  border-color: #218838; /* لون حدود زر الإضافة عند التحويم */
+}
+
+/* تصميم زر تسجيل الدخول */
+.btn-lg.login {
+  background-color: #007bff; /* لون خلفية زر تسجيل الدخول */
+  border-color: #007bff; /* لون حدود زر تسجيل الدخول */
+  color: #fff; /* لون النص في زر تسجيل الدخول */
+}
+
+.btn-lg.login:hover {
+  background-color: #0069d9; /* لون خلفية زر تسجيل الدخول عند التحويم */
+  border-color: #0062cc; /* لون حدود زر تسجيل الدخول عند التحويم */
+}
+
+.btn-lg.add-stadium,
+.btn-lg.login {
+  font-size: 1rem; /* Decrease font size */
+  padding: 10px 15px; /* Adjust padding as needed */
+}
+
+/* Custom styles for stadium images */
+.courses__img img {
+  width: 100%;
+  height: 200px; /* تعيين ارتفاع محدد للصور */
+  object-fit: cover; /* تغطية المحتوى بشكل متساوي */
+}
+
+/* تعديل ألوان النصوص والخلفيات */
+.sidebar button,
+.sidebar-footer a {
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  font-size: 1.25rem;
+  margin: 5px 0;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar button:hover,
+.sidebar-footer a:hover {
+  background-color: hsl(0, 74%, 61%);
+  color: white; /* تغيير لون النص عند التحويم */
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.sidebar-footer a {
+  color: white;
+  padding: 15px;
+  text-decoration: none;
+  display: block;
+  transition: 0.3s;
+  text-align: center; /* تعيين النص في المنتصف */
+  background-color: #495057;
+  margin: 5px 20px; /* تأكد من أن الهوامش لا تعرقل النقر */
+  border-radius: 5px;
+  width: calc(100% - 40px); /* تعيين العرض كاملاً مع مراعاة الهوامش */
+  box-sizing: border-box; /* لضمان أن العرض يشمل الهوامش */
+}
+
+.main-footer {
+  color: #fff; /* Footer text color */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  margin-left: 250px; /* Adjust margin to match main-content margin */
+}
+
+
+
+.main-footer__title {
+  color: #000000;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.main-footer__menu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.main-footer__menu li {
+  margin-bottom: 10px;
+}
+
+.main-footer__link {
+  color: #e74c3c;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.social-icon {
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.main-title {
+  margin-top: -50px; /* Adjust the margin-top to move "Sportify" and the squares above */
+  font-size: 3rem; /* Adjust font size as needed */
+  color: #343a40; /* Adjust text color */
+}

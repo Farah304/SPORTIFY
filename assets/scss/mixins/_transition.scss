@@ -1,0 +1,125 @@
+@mixin transition(
+  $property: all,
+  $duration: 0.2s,
+  $function: ease-in-out,
+  $delay: 0.1s
+) {
+  -webkit-transition: $property $duration $function $delay;
+  -moz-transition: $property $duration $function $delay;
+  -ms-transition: $property $duration $function $delay;
+  -o-transition: $property $duration $function $delay;
+  transition: $property $duration $function $delay;
+}
+
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+// rotate
+@mixin rotate($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+// scale
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+// translate
+@mixin translate($x, $y) {
+  @include transform(translateX($x) translateY($y));
+}
+// skew
+@mixin skew($x, $y) {
+  @include transform(skew(#{$x}deg, #{$y}deg));
+}
+//transform origin
+@mixin transform-origin($origin) {
+  moz-transform-origin: $origin;
+  -o-transform-origin: $origin;
+  -ms-transform-origin: $origin;
+  -webkit-transform-origin: $origin;
+  transform-origin: $origin;
+}
+
+@mixin animation(
+  $duration,
+  $timing-function,
+  $name,
+  $delay: null,
+  $count: null,
+  $direction: null,
+  $fill-mode: null,
+  $play-state: null,
+  $property: null
+) {
+  -webkit-animation: $duration $timing-function $name $delay $count $direction
+    $fill-mode $play-state;
+  animation: $duration $timing-function $name $delay $count $direction
+    $fill-mode $play-state;
+}
+
+@mixin keyframe($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+@include keyframe(spin) {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@include keyframe(bubble) {
+  0% {
+    transform: translateY(0vh);
+    opacity: 0;
+  }
+  5%,
+  95% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+@include keyframe(loader) {
+  0% {
+    transform: rotate(0deg);
+  }
+  25%,
+  50% {
+    transform: rotate(180deg);
+  }
+  75%,
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@include keyframe(loaderIn) {
+  0%,
+  25%,
+  100% {
+    height: 0%;
+  }
+  50%,
+  75% {
+    height: 100%;
+  }
+}

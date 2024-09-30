@@ -1,0 +1,15 @@
+// ============ Style Pagination ============ //
+.page-item.disabled .page-link,
+.page-link {
+  border: none;
+  color: $black-90;
+  background: transparent;
+}
+
+.page-item.active .page-link {
+  background: $main-color;
+}
+.page-link:hover {
+  color: $WHITE;
+  background: $main-color;
+}

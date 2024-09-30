@@ -1,0 +1,30 @@
+// =========== Style Section Contact ============ //
+.contact {
+  &__title {
+    font-size: rem(35);
+    font-weight: $font-weight-base;
+    text-transform: capitalize;
+    margin-bottom: rem(60);
+    @include breakpoint(isMobile) {
+      font-size: rem(25);
+    }
+  }
+  &__box {
+    position: relative;
+    padding-left: rem(55);
+    margin-bottom: rem(40);
+  }
+  &__icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $WHITE;
+    background: $main-color;
+    border-radius: $base-border-radius;
+  }
+}

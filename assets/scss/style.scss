@@ -1,0 +1,30 @@
+// ======= Import Variables ======= //
+@import "./base/variables";
+
+// ======= Import Mixins ======= //
+@import "./base/mixins";
+
+// ======= Import LayOuts ======= //
+@import "./base/reset";
+
+// ======= Import LayOuts ======= //
+@import "./layouts/l-main";
+
+// ======= Import Modules ======= //
+@import "./modules/main-title";
+@import "./modules/breadcrumb";
+@import "./modules/main-home";
+@import "./modules/main-header";
+@import "./modules/main-card";
+@import "./modules/main-slider";
+@import "./modules/main-footer";
+@import "./modules/nav-tabs";
+@import "./modules/buttons";
+@import "./modules/box-counter";
+@import "./modules/courses";
+@import "./modules/course-details";
+@import "./modules/pagination";
+@import "./modules/contact";
+@import "./modules/switch";
+@import "./modules/bubble";
+@import "./modules/preloader";

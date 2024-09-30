@@ -1,0 +1,33 @@
+// ========= Preloader Style ============
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1010;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $white;
+}
+.page-loader.fade-out {
+  opacity: 0;
+  transition: $transition;
+}
+.page-loader div {
+  width: 45px;
+  height: 45px;
+  border: 5px solid $main-color;
+  @include animation(loader, 2s, linear, infinite);
+}
+.page-loader div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $main-color;
+  @include animation(loaderIn, 2s, linear, infinite);
+}

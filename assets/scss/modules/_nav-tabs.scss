@@ -1,0 +1,22 @@
+// =============== Style Tabs ================ //
+.nav-tabs {
+  .nav-link {
+    font-size: rem(16);
+    color: $black-90;
+    background: $white;
+    text-transform: capitalize;
+    padding: rem(5) rem(12);
+    margin: 0 rem(5) rem(10);
+    border-color: $border-color;
+    border-radius: $base-radius / 4;
+    transition: $transition;
+    &:hover {
+      border-color: $border-color;
+    }
+  }
+  .nav-link.active {
+    color: $WHITE;
+    background: $main-color;
+    border-color: transparent;
+  }
+}

@@ -1,0 +1,85 @@
+// ============ Style Switch Section =========== //
+.switcher {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  padding: rem(30);
+  background: $WHITE;
+  z-index: 10;
+  box-shadow: $box-shadow;
+  transition: right 0.3s ease;
+  &__toggler {
+    position: absolute;
+    top: 12%;
+    left: -40px;
+    width: 40px;
+    height: 40px;
+    color: $WHITE;
+    background: $main-color;
+    @extend %genral;
+    border-radius: rem(5) 0 0 rem(5);
+    cursor: pointer;
+  }
+  &__title {
+    font-size: rem(20);
+    font-weight: $font-weight-base;
+    padding: 0 0 rem(10);
+    text-transform: capitalize;
+    border-bottom: $base-border solid $border-color;
+  }
+  &__item {
+    padding: rem(10) 0;
+    border-bottom: $base-border solid $border-color;
+  }
+}
+.switcher.open {
+  right: 0;
+}
+
+.switcher__theme-colors {
+  > button {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    vertical-align: middle;
+    border-radius: $base-border-radius;
+    &::before {
+      content: "\f00c";
+      font-family: "Font Awesome 5 Free";
+      font-size: rem(12);
+      font-weight: $font-weight-bolder;
+      color: $WHITE;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: $transition;
+      opacity: 0;
+    }
+    .active::before {
+      opacity: 1;
+    }
+  }
+  .color-1 {
+    background: $color-1;
+  }
+  .color-2 {
+    background: $color-2;
+  }
+  .color-3 {
+    background: $color-3;
+  }
+  .color-4 {
+    background: $color-4;
+  }
+  .color-5 {
+    background: $color-5;
+  }
+}
+// .switcher__theme-colors button.active::before {
+//   opacity: 1;
+// }

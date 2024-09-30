@@ -1,0 +1,245 @@
+// =========== Main Header Style ============ //
+
+.main-header {
+  border-bottom: $base-border solid $border-color;
+}
+
+.main-header__logo {
+  > a {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    color: $black-90;
+    @include breakpoint(isMobile) {
+      font-size: rem(22);
+    }
+  }
+  span {
+    color: $main-color;
+  }
+}
+.logo__sport {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.menu__item {
+  margin-left: rem(30);
+  position: relative;
+  > a {
+    display: block;
+    font-weight: $font-weight-normal;
+    color: $black-90;
+    text-transform: capitalize;
+    transition: $transition;
+    &:hover {
+      color: $main-color !important;
+    }
+  }
+  > a i {
+    font-size: rem(13);
+    margin-left: 0.2rem;
+    pointer-events: none;
+  }
+}
+
+.dropdown__menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 180px;
+  padding: 0.75rem 0;
+  background: $white;
+  border-radius: $base-radius / 4;
+  box-shadow: $box-shadow;
+  transition: $transition;
+  // visibility: hidden;
+  // transform: translateY(10px);
+  // z-index: 2;
+  // opacity: 0;
+
+  .dropdown__items > a {
+    display: block;
+    padding: 0.75rem 1.3rem;
+    color: $black-90;
+    font-weight: $font-weight-light;
+    text-transform: capitalize;
+    transition: $transition;
+    &:hover {
+      color: $main-color !important;
+    }
+  }
+  @include breakpoint(isCommon) {
+    width: unset;
+  }
+}
+// @include breakpoint(large) {
+//   .menu__item:hover > .dropdown__menu {
+//     visibility: visible;
+//     transform: translateY(0);
+//     opacity: 1;
+//   }
+// }
+
+// .header-backdrop,
+// .header-close-btn,
+// .header-hamburger-btn {
+//   display: none;
+// }
+
+// @include breakpoint(isCommon) {
+//   .main-header {
+//     padding: rem(12) 0;
+//   }
+//   .header-hamburger-btn {
+//     display: block;
+//     width: 40px;
+//     height: 34px;
+//     border: 0;
+//     background: transparent;
+//     cursor: pointer;
+//     > span {
+//       position: relative;
+//       display: block;
+//       width: 24px;
+//       height: 2px;
+//       background: $black-90;
+//       margin: auto;
+//       &::before,
+//       &::after {
+//         content: "";
+//         position: absolute;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//         background: $black-90;
+//       }
+//       &::before {
+//         top: -7px;
+//       }
+//       &::after {
+//         top: 7px;
+//       }
+//     }
+//   }
+//   .header-close-btn {
+//     display: block;
+//     width: 40px;
+//     height: 40px;
+//     border: 0;
+//     color: $WHITE;
+//     background: $main-color;
+//     position: absolute;
+//     left: rem(15);
+//     top: rem(15);
+//     border-radius: $base-radius / 4;
+//     cursor: pointer;
+//   }
+//   .main-header__menu {
+//     position: fixed;
+//     top: 0;
+//     right: -300px;
+//     width: 300px;
+//     height: 100vh;
+//     padding: rem(70) 0 rem(50);
+//     background: $white;
+//     overflow-y: auto;
+//     box-shadow: $base-box-shadow;
+//     z-index: 999;
+//     transition: $transition;
+//   }
+//   .main-header__ul {
+//     display: block;
+//   }
+//   .menu__item {
+//     margin: 0;
+//     > a {
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//       padding: rem(12) rem(16);
+//       border-bottom: $base-border solid $border-color;
+//     }
+//   }
+//   // :first-child > a {
+//   //   border-top: $base-border solid $border-color;
+//   // }
+//   .dropdown__menu {
+//     position: relative;
+//     width: 100%;
+//     max-height: 0;
+//     padding: 0;
+//     top: auto;
+//     visibility: visible;
+//     transform: translateY(0);
+//     border-radius: 0;
+//     opacity: 1;
+//     box-shadow: none;
+//     overflow: hidden;
+//     .dropdown__items > a {
+//       padding: rem(12) rem(45);
+//       border-bottom: $base-border solid $border-color;
+//     }
+//   }
+//   .header-backdrop {
+//     display: block;
+//     width: 100%;
+//     height: 100%;
+//     visibility: hidden;
+//     background: $white;
+//     position: fixed;
+//     left: 0;
+//     top: 0;
+//     z-index: 1010;
+//     transition: $transition;
+//   }
+// }
+
+// ========= Header =================
+
+// <!-- <div class="container">
+//   <div class="main-header__content d-flex justify-content-between align-items-center">
+//     <div class="main-header__logo">
+//       <a href="index.html" class="logo"><span>tws</span>tudy</a>
+//     </div>
+//     <button type="button" class="header-hamburger-btn js-header-menu-toggler">
+//       <span></span>
+//     </button>
+//     <div class="header-backdrop js-headar-backdrop"></div>
+//     <nav class="main-header__menu main-header__menu-js">
+//       <button type="button" class="header-close-btn js-header-menu-toggler">
+//         <i class="fas fa-times"></i>
+//       </button>
+//       <ul class="main-header__ul">
+//         <li class="menu__item"><a href="index.html">home</a></li>
+//         <li class="menu__item menu__item--children">
+//           <a href="#" class="menu__item-toggle">courses <i class="fas fa-chevron-down"></i></a>
+//           <ul class="dropdown__menu dropdown__menu--js">
+//             <li class="dropdown__items">
+//               <a href="courses.html">courses</a>
+//             </li>
+//             <li class="dropdown__items">
+//               <a href="course-details.html">courses-details</a>
+//             </li>
+//           </ul>
+//         </li>
+//         <li class="menu__item menu__item--children">
+//           <a href="#" class="menu__item-toggle">pages <i class="fas fa-chevron-down"></i></a>
+//           <ul class="dropdown__menu dropdown__menu--js">
+//             <li class="dropdown__items">
+//               <a href="login.html">login</a>
+//             </li>
+//             <li class="dropdown__items">
+//               <a href="registar.html">sign up</a>
+//             </li>
+//           </ul>
+//         </li>
+//         <li class="menu__item"><a href="contact.html">contact</a></li>
+//       </ul>
+//     </nav>
+//   </div>
+// </div> //

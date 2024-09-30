@@ -1,0 +1,70 @@
+// ========= Style Section Courses ======= //
+.courses {
+  &__item {
+    margin-bottom: $base-margin;
+    position: relative;
+  }
+  &__img {
+    position: relative;
+    transition: $transition;
+    img {
+      width: 100%;
+      border-radius: $base-radius / 6;
+      box-shadow: $base-box-shadow;
+    }
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  &__link {
+    color: $black-70;
+    display: inline-block;
+  }
+  &__title {
+    font-size: rem(20);
+    margin: $base-margin-lg 0;
+    text-transform: capitalize;
+    transition: color 0.3s ease;
+    &:hover {
+      color: $main-color;
+    }
+  }
+  &__instructor {
+    margin: 0 0 $base-margin-md;
+    text-transform: capitalize;
+    img {
+      width: 35px;
+      margin-right: rem(5);
+      border-radius: $base-border-radius;
+    }
+  }
+  &__rating {
+    font-size: rem(14);
+  }
+  &__average {
+    font-weight: $font-weight-base;
+    color: $orange;
+  }
+  &__stars > i {
+    color: $orange;
+    transition: $transition;
+    &:hover {
+      color: $main-color;
+    }
+  }
+  &__reviews {
+    font-size: rem(14);
+    font-weight: $font-weight-light;
+    color: $black-90;
+  }
+  &__price {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: rem(4) rem(8);
+    font-weight: $font-weight-base;
+    color: $WHITE;
+    background: $main-color;
+    border-radius: $base-radius / 6;
+  }
+}

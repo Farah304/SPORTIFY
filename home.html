@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./style_home.css">
+  <link rel="stylesheet" href="./style_sidebar.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="./assets/js/script.js"></script>
+</head>
+
+<body>
+  <!-- Page Loader -->
+  <div class="page-loader js-page-loader">
+    <div></div>
+  </div>
+  <!-- Page Loader End -->
+
+  <!-- Sidebar Start -->
+  <div class="sidebar">
+    <div>
+      <div class="sidebar-header">
+        <img src="./assets/image/logo2.png" class="img-fluid" alt="logo-sport">
+      </div>
+      <button onclick="showStadiums('football')" class="btn-lg football"><i class="fas fa-futbol icon"></i> Football</button>
+      <button onclick="showStadiums('padel')" class="btn-lg padel"><i class="fas fa-table-tennis icon"></i> Padel</button>
+      <button onclick="showStadiums('basketball')" class="btn-lg basketball"><i class="fas fa-basketball-ball icon"></i> Basketball</button>
+      <button onclick="showStadiums('tennis')" class="btn-lg tennis"><i class="fas fa-volleyball-ball icon"></i> Tennis</button>
+    </div>
+    <div class="sidebar-footer">
+      <a href="./index.html" class="btn-lg add-stadium"><i class="fas fa-plus icon"></i> Add Stadium</a>
+      <a href="login.html" class="btn-lg login"><i class="fas fa-sign-in-alt icon"></i> Logout</a>
+    </div>
+  </div>
+  <!-- Sidebar End -->
+
+  <!-- Main Wrapper Start -->
+  <div class="main-content">
+    <!-- Courses Section Start -->
+    <section class="courses l-home">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="main-title text-center mb-5">
+              <h2 class="subtitle">Sportify</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center mb-4">
+          <div class="col-md-3">
+            <button class="btn btn-lg btn-block football" onclick="showStadiums('football')"><i class="fas fa-futbol icon"></i>Football</button>
+          </div>
+          <div class="col-md-3">
+            <button class="btn btn-lg btn-block padel" onclick="showStadiums('padel')"><i class="fas fa-table-tennis icon"></i>Padel</button>
+          </div>
+          <div class="col-md-3">
+            <button class="btn btn-lg btn-block basketball" onclick="showStadiums('basketball')"><i class="fas fa-basketball-ball icon"></i>Basketball</button>
+          </div>
+          <div class="col-md-3">
+            <button class="btn btn-lg btn-block tennis" onclick="showStadiums('tennis')"><i class="fas fa-volleyball-ball icon"></i> Tennis</button>
+          </div>
+        </div>
+        <div class="row" id="courses-container"></div>
+      </div>
+    </section>
+    <!-- Courses Section End -->
+  </div>
+  <!-- Main Wrapper End -->
+
+  <!-- Footer Section Start -->
+  <footer class="main-footer" id="footer">
+    <div class="main-footer__top pt-3 pb-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-lg-6">
+            <div class="main-footer__item">
+              <h3 class="main-footer__title">Get in Touch</h3>
+              <ul class="main-footer__menu">
+                <li><a href="https://www.facebook.com/" class="main-footer__link"><i class="fab fa-facebook-f social-icon"></i> Facebook</a></li>
+                <li><a href="https://twitter.com/" class="main-footer__link"><i class="fab fa-twitter social-icon"></i> Twitter</a></li>
+                <li><a href="https://www.instagram.com/" class="main-footer__link"><i class="fab fa-instagram social-icon"></i> Instagram</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer Section End -->
+
+  <script src="js/firehome.main.js"></script>
+  <script src="./assets/js/jquery-3.6.0.min.js"></script>
+  <script src="./assets/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

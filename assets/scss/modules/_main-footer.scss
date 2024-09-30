@@ -1,0 +1,72 @@
+// ================ Style Footer ================ //
+.main-footer__logo {
+  > a {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    color: $black-90;
+  }
+  span {
+    color: $main-color;
+  }
+}
+.main-footer {
+  &__top {
+    border: $base-border solid $border-color;
+  }
+  // &__item {
+  //   margin: 0 0 rem(30);
+  // }
+  &__title {
+    font-size: rem(24);
+    font-weight: $font-weight-normal;
+    color: $black-90;
+    margin: 0 0 rem(20);
+    text-transform: capitalize;
+  }
+  &__bottom {
+    border-top: $base-border solid $border-color;
+  }
+  &__copyright {
+    font-size: $base-font-size;
+    font-weight: $font-weight-light;
+    color: $black-90;
+    text-transform: capitalize;
+  }
+  @include breakpoint(isMobile) {
+    text-align: center;
+  }
+}
+.main-footer__mnue {
+  display: flex;
+  gap: rem(24);
+  > li:not(:last-child) {
+    margin-bottom: rem(10);
+  }
+  li > a {
+    position: relative;
+    color: $black-70;
+    text-transform: capitalize;
+    font-weight: $font-weight-light;
+    transition: $transition;
+    &:hover {
+      color: $main-color;
+    }
+  }
+  li > a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 1px;
+    background: $main-color;
+    transition: $transition;
+  }
+  li > a:hover::before {
+    width: 100%;
+  }
+  .social-icon {
+    margin-right: rem(10);
+  }
+}

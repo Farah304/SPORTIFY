@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- BootStrap css -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="./assets/css/font-awesome.css" />
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Log In</title>
+</head>
+
+<body>
+    <div class="logo">
+        <img src="assets/image/logo2.png" alt="Logo" class="logo">
+    </div>
+    
+    <div class="page-loader js-page-loader">
+        <div></div>
+    </div>
+    <!-- Main Wrapper Start -->
+    <div class="main__wrapper">
+        <!-- header Start -->
+        <section class="bg-login">
+            <div class="container-wrrper" id="container">
+                <div class="form-container sign-up">
+                    <form>
+                        <h1>Create Account</h1>
+                        <span>or use your email for registration</span>
+                        <input type="text" placeholder="Name">
+                        <input type="email" placeholder="Email">
+                        <input type="password" placeholder="Password">
+                        <button>Sign Up</button>
+                    </form>
+                </div>
+                <div class="form-container sign-in">
+                    <form>
+                        <h1>Sign In</h1>
+                        <span>or use your email password</span>
+                        <input type="email" id="username" placeholder="Email">
+                        <input type="password" id="password" placeholder="Password">
+                        <a href="#">Forget Your Password?</a>
+                        <button type="button" class="login-btn">Sign In</button>
+                    </form>
+                </div>
+                <div class="toggle-container">
+                    <div class="toggle">
+                        <div class="toggle-panel toggle-left">
+                            <h1>Welcome Back!</h1>
+                            <p>Enter your personal details to use all of site features</p>
+                            <button class="hidden" id="login">Sign In</button>
+                        </div>
+                        <div class="toggle-panel toggle-right">
+                            <h1>Hello, Friend!</h1>
+                            <p>Register with your personal details to use all of site features</p>
+                            <button class="hidden" id="register">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCdPXhfGyTxUHiPQDc3_ToZ5vcKF3miNtc",
+            authDomain: "wwew-fa4b6.firebaseapp.com",
+            projectId: "wwew-fa4b6",
+            storageBucket: "wwew-fa4b6.appspot.com",
+            messagingSenderId: "66751097136",
+            appId: "1:66751097136:web:2d89b8a4cfb72e60be40f5",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const auth = firebase.auth();
+
+        // Sign Up function
+        document.querySelector('.sign-up button').addEventListener('click', (e) => {
+          e.preventDefault();
+          const name = document.querySelector('.sign-up input[type="text"]').value;
+          const email = document.querySelector('.sign-up input[type="email"]').value;
+          const password = document.querySelector('.sign-up input[type="password"]').value;
+
+          if (!email.endsWith('@play.admin')) {
+            alert('Email must end with @play.admin');
+            return;
+          }
+
+          auth.createUserWithEmailAndPassword(email, password)
+            .then(userCredential => {
+              alert('Sign Up Successful');
+              window.location.assign('home.html');
+            })
+            .catch(error => {
+              alert(error.message);
+            });
+        });
+
+        // Sign In function
+        document.querySelector('.sign-in .login-btn').addEventListener('click', (e) => {
+          e.preventDefault();
+          const email = document.getElementById('username').value;
+          const password = document.getElementById('password').value;
+
+          if (!email.endsWith('@play.admin')) {
+            alert('Email must end with @play.admin');
+            return;
+          }
+
+          auth.signInWithEmailAndPassword(email, password)
+            .then(userCredential => {
+              alert('Sign In Successful');
+              window.location.assign('home.html');
+            })
+            .catch(error => {
+              alert(error.message);
+            });
+        });
+      });
+    </script>
+
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <!-- javaScript -->
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>

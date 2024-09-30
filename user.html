@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(106.37deg, #ffe1bc 29.63%, #ffcfd1 51.55%, #f3c6f1 90.85%);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #e0f7fa;
+        }
+        .search-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .search-bar input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .search-bar button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+        .navbar {
+          background-color: #333;
+          color: #fff;
+          padding: 10px 0;
+        }
+        .container-fluid {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .brand {
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: #fff;
+          text-decoration: none;
+          margin-left: 20px;
+        }
+        .brand img {
+          height: 80px;
+          width: 80px;
+        }
+        .nav-links {
+          list-style: none;
+          display: flex;
+        }
+        .nav-two {
+          margin-right: 80px;
+        }
+        .nav-links li {
+          margin-left: 20px;
+        }
+        .nav-links li a,
+        .nav-links li button {
+          color: #fff;
+          text-decoration: none;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-size: 1rem;
+        }
+        .nav-links li button:hover {
+          color: #ddd;
+        }
+    </style>
+    <!-- Include flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a href="#" class="brand">
+                <img src="image/410426944_889552385795397_3236638403357230420_n-removebg-preview.png" alt="Logo">
+            </a>
+            <div class="nav-two">
+                <ul class="nav-links">
+                    <li><a href="./home.html">Home</a></li>
+                    <li><a href="./login.html">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Guest List</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchDate" placeholder="Search by date...">
+            <button id="searchButton">Search</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Guest</th>
+                    <th>Date & Time of the Transaction</th>
+                    <th>Phone Number</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Proof of Payment</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="guestList">
+                <!-- Booking data will be appended here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Include Firebase Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <!-- Include flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCdPXhfGyTxUHiPQDc3_ToZ5vcKF3miNtc",
+            authDomain: "wwew-fa4b6.firebaseapp.com",
+            projectId: "wwew-fa4b6",
+            storageBucket: "wwew-fa4b6.appspot.com",
+            messagingSenderId: "66751097136",
+            appId: "1:66751097136:web:2d89b8a4cfb72e60be40f5",
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        const db = firebase.firestore();
+
+        // Get the current user's UID
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                // User is signed in, fetch the bookings for the stadiums created by this user
+                fetchBookingsForUserStadiums(user.uid);
+            } else {
+                // No user is signed in
+                console.log('No user is signed in.');
+            }
+        });
+
+        // Function to fetch and render bookings for the stadiums created by the logged-in user
+        function fetchBookingsForUserStadiums(userUid) {
+            const bookingContainer = document.querySelector('#guestList');
+            bookingContainer.innerHTML = ''; // Clear previous data
+
+            db.collection("stadiums").where('createdBy', '==', userUid).get()
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((stadiumDoc) => {
+                        // For each stadium, fetch its bookings
+                        stadiumDoc.ref.collection('bookings').get()
+                            .then((bookingSnapshot) => {
+                                bookingSnapshot.forEach((bookingDoc) => {
+                                    const bookingData = bookingDoc.data();
+                                    // Create a table row for each booking
+                                    const row = document.createElement('tr');
+                                    row.innerHTML = `
+                                        <td>${bookingData.name}</td>
+                                        <td>${new Date(bookingData.date.seconds * 1000).toLocaleString()}</td>
+                                        <td>${bookingData.phone_number}</td>
+                                        <td>${formatTime(bookingData.start_time)}</td>
+                                        <td>${formatTime(bookingData.end_time)}</td>
+                                        <td><button onclick="viewProof('${bookingData.image_url}')">View Proof</button></td>
+                                        <td><button onclick="deleteRow('${stadiumDoc.id}', '${bookingDoc.id}', this)">Delete</button></td>
+                                    `;
+                                    bookingContainer.appendChild(row);
+                                });
+                            })
+                            .catch((error) => {
+                                console.error("Error fetching bookings: ", error);
+                            });
+                    });
+                })
+                .catch((error) => {
+                    console.error("Error fetching stadiums: ", error);
+                });
+        }
+
+        // Function to format time
+        function formatTime(timestamp) {
+            const date = new Date(timestamp.seconds * 1000);
+            return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        }
+
+        // Function to view proof of payment
+        function viewProof(imageUrl) {
+            const modal = document.createElement('div');
+            modal.classList.add('modal');
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <img src="${imageUrl}" alt="Proof of Payment">
+                </div>
+            `;
+            document.body.appendChild(modal);
+
+            const closeModal = modal.querySelector('.close');
+            closeModal.addEventListener('click', () => {
+                modal.remove();
+            });
+
+            modal.style.display = 'block';
+        }
+
+        // Function to delete a booking
+        function deleteRow(stadiumId, bookingId, button) {
+            db.collection("stadiums").doc(stadiumId).collection('bookings').doc(bookingId).delete()
+                .then(() => {
+                    button.closest('tr').remove();
+                })
+                .catch((error) => {
+                    console.error("Error deleting booking: ", error);
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            flatpickr('#searchDate', {
+                enableTime: true,
+                dateFormat: "m/d/Y H:i",
+            });
+
+            document.getElementById('searchButton').addEventListener('click', function() {
+                const searchDate = document.getElementById('searchDate').value;
+                // Add search functionality if needed
+            });
+        });
+    </script>
+    <script src="./js/ii.js"></script>
+</body>
+</html>

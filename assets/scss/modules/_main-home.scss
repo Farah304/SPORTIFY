@@ -1,0 +1,70 @@
+// ===== Style Home Banner Section ======== //
+.main-section {
+  min-height: 680px;
+}
+.banner {
+  &__title {
+    font-size: rem(22);
+    color: $main-color;
+    font-weight: $font-weight-normal;
+    @include breakpoint(isCommon) {
+      font-size: rem(20);
+    }
+  }
+  &__subtitle {
+    font-size: rem(55);
+    font-weight: $font-weight-bold;
+    color: $BLACK;
+    @include breakpoint(isCommon) {
+      font-size: rem(35);
+    }
+  }
+  &__text {
+    font-size: rem(19);
+    font-weight: 200;
+    color: $gray-500;
+    line-height: 1.4;
+    @include breakpoint(isCommon) {
+      font-size: rem(16);
+    }
+  }
+}
+.circular__img {
+  max-width: 360px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+  @include breakpoint(isCommon) {
+    max-width: 280px;
+  }
+  img {
+    position: relative;
+    z-index: 1;
+    @include breakpoint(isCommon) {
+      max-width: 240px;
+    }
+  }
+}
+
+.circular__inner {
+  text-align: center;
+  border-radius: 0 0 180px 180px;
+  overflow: hidden;
+}
+
+.circular__circle {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 360px;
+  height: 360px;
+  background: $red-light;
+  border-radius: $base-border-radius;
+  &--color {
+    background: $yellow-light;
+  }
+  @include breakpoint(isCommon) {
+    width: 280px;
+    height: 280px;
+  }
+}
